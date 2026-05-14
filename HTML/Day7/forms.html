@@ -7,19 +7,22 @@
 <body>
     
     <h1>Product List Inventory</h1>
-
+<hr>
     <section>
         <img src="../assets/orangeform.webp" width="50">
         <div>
             <form>
             <label>Product Name:</label>
-            <input type="text" name="product_name" required>
+            <input type="radio" name="productname" value="Valencia Orange"> Valencia Orange
+            <input type="radio" name="productname" value="Blood Orange"> Blood Orange
+            <input type="radio" name="productname" value="Navel Orange"> Navel Orange
             <br><br>
             <label>Category:</label>
             <input type="text" name="category" required> 
             
             <label>Licensed:</label>
             <select name="Licensed" required>
+                <option value="#"></option>
                 <option value="Yes">Yes</option>
                 <option value="No">No</option>
             </select>
@@ -31,6 +34,7 @@
             <input type="number" name="price" step="0.01" required>
             <label>Approved By :</label>
             <select>
+                <option value="">Choose one ---</option>
                 <option value="FSSI">FSSI</option>
                 <option value="GST">GST</option>
                 <option value="Other LICENSED">Other</option>
@@ -41,11 +45,11 @@
             <br><br>
 
             <label> Ship ID : </label>
-            <input type="text" number name="ship_id" required>
+            <input type="text" name="ship_id" required>
 
             <br><br>
             <label> Weight(in tons) : </label>
-            <input type="number" number name="weight" min="0" required>
+            <input type="number" name="weight" min="0" required>
 
         
             <label>City:</label>
@@ -64,13 +68,17 @@
         <div>
             <form>
             <label>Product Name:</label>
-            <input type="text" name="product_name" required>
+<input type="radio" name="productname" value="Red Delicious"> Red Delicious
+<input type="radio" name="productname" value="Granny Smith"> Granny Smith   
+<input type="radio" name="productname" value="Fuji Apple"> Fuji Apple
+        
             <br><br>
             <label>Category:</label>
             <input type="text" name="category" required> 
             
             <label>Licensed:</label>
             <select name="Licensed" required>
+                <option value=""></option>
                 <option value="Yes">Yes</option>
                 <option value="No">No</option>
             </select>
@@ -83,6 +91,7 @@
             
             <label>Approved By :</label>
             <select>
+                <option value="">Choose one ---</option>
                 <option value="FSSI">FSSI</option>
                 <option value="GST">GST</option>
                 <option value="Other LICENSED">Other</option>
@@ -93,11 +102,11 @@
             <br><br>
 
             <label> Ship ID : </label>
-            <input type="text" number name="ship_id" required>
+            <input type="text" name="ship_id" required>
 
             <br><br>
             <label> Weight(in tons) : </label>
-            <input type="number" number name="weight" min="0" required>
+            <input type="number" name="weight"required>
 
         
             <label>City:</label>
@@ -110,6 +119,54 @@
             </form>
         </div>
     </section>
+    <br><br>
+
+    <table>
+<tbody>
+<thead>
+    <th>Product Name</th>
+    <th>Category</th>  
+    <th>Licensed</th>
+    <th>Price</th>  
+    <th>Approved </th>
+    <th>Stock</th>
+    <th>Ship ID</th>
+    <th>Weight</th>
+    <th>City</th>
+</thead>
+<tr>
+<td>Mandarin orange</td>
+<td>Citrus</td>
+<td>Yes</td>
+<td>0.50</td>       
+<td>FSSI</td>
+<td>100</td>        
+<td>SHIP123</td>
+<td>20</td>
+<td>Los Angeles</td>
+</tr>
+<tr>
+<td>Red Delicious Apple</td>
+<td>Fruit</td>  
+<td>No</td>
+<td>0.75</td>
+<td>GST</td>
+<td>150</td>
+<td>SHIP456</td>
+<td>30</td>
+<td>New York</td>
+
+
+
+
+
+</tr>
+</tbody>
+    </table>
+
+    <hr>
+
+
 
 </body>
 </center>
