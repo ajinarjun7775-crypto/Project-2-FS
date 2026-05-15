@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Builder</title>
+
+</head>
+<body>
+    <div>
+        <h2>Resume Builder</h2>
+        
+        <form>
+            
+            <!-- Personal Details -->
+            <fieldset>
+                <legend>Personal Details</legend>
+                
+                <div>
+                    <div>
+                        <label for="fullName">Full Name *</label>
+                        <input type="text" placeholder="full name" required>
+                    </div>
+                    <div>
+                        <label for="jobTitle">Professional Title</label>
+                        <input type="text" placeholder="e.g., Software Engineer">
+                    </div>
+                </div>
+                
+                <div>
+                    <div>
+                        <label for="email">Email Address *</label>
+                        <input type="email" required>
+                    </div>
+                    <div>
+                        <label for="phone">Phone Number *</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                </div>
+                
+                <label for="address">Address</label>
+                <textarea id="address" name="address" rows="2"></textarea>
+                
+                <div class="row">
+                    <div>
+                        <label for="linkedin">LinkedIn Profile</label>
+                        <input type="url" id="linkedin" name="linkedin" placeholder="https://linkedin.com/in/yourprofile">
+                    </div>
+                    <div>
+                        <label for="github">GitHub / Portfolio</label>
+                        <input type="url" id="github" name="github">
+                    </div>
+                </div>
+                
+                <label for="photo">Profile Photo</label>
+                <input type="file" id="photo" name="photo" accept="image/*">
+            </fieldset>
+            
+            <!-- Professional Summary -->
+            <fieldset>
+                <legend>Professional Summary</legend>
+                <label for="summary">Summary / Objective</label>
+                <textarea id="summary" name="summary" rows="4" placeholder="Write a brief professional summary..."></textarea>
+            </fieldset>
+            
+            <!-- Education Details -->
+            <fieldset>
+                <legend>Education Details</legend>
+                <div id="educationEntries">
+                    <!-- Default Education Entry -->
+                    <div class="entry">
+                        <div class="row">
+                            <div>
+                                <label>Degree / Qualification</label>
+                                <input type="text" name="degree[]" placeholder="B.Tech Computer Science">
+                            </div>
+                            <div>
+                                <label>Institution</label>
+                                <input type="text" name="institution[]" placeholder="Anna University">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div>
+                                <label>Year of Completion</label>
+                                <input type="date" name="eduYear[]">
+                            </div>
+                            <div>
+                                <label>Percentage / CGPA</label>
+                                <input type="text" name="percentage[]" placeholder="8.7 CGPA">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button type="button" class="add-btn" onclick="addEducation()">+ Add Another Education</button>
+            </fieldset>
+            
+            <!-- Experience -->
+            <fieldset>
+                <legend>Work Experience</legend>
+                <div id="experienceEntries">
+                    <!-- Default Experience Entry -->
+                    <div class="entry">
+                        <label>Job Title</label>
+                        <input type="text" name="jobTitleExp[]" placeholder="Software Developer">
+                        
+                        <label>Company Name</label>
+                        <input type="text" name="company[]" placeholder="TCS / Infosys">
+                        
+                        <div class="row">
+                            <div>
+                                <label>From</label>
+                                <input type="date" name="fromDate[]">
+                            </div>
+                            <div>
+                                <label>To</label>
+                                <input type="date" name="toDate[]">
+                            </div>
+                        </div>
+                        
+                        <label>Key Responsibilities / Achievements</label>
+                        <textarea name="responsibilities[]" rows="3" placeholder="• Developed...&#10;• Improved..."></textarea>
+                    </div>
+                </div>
+                <button type="button" class="add-btn" onclick="addExperience()">+ Add Another Experience</button>
+            </fieldset>
+            
+            <!-- Skills -->
+            <fieldset>
+                <legend>Skills</legend>
+                <label>Select / Add Skills</label>
+                <div>
+                    <label><input type="checkbox" name="skills[]" value="Python"> Python</label>
+                    <label><input type="checkbox" name="skills[]" value="Java"> Java</label>
+                    <label><input type="checkbox" name="skills[]" value="JavaScript"> JavaScript</label>
+                    <label><input type="checkbox" name="skills[]" value="React"> React</label>
+                    <label><input type="checkbox" name="skills[]" value="SQL"> SQL</label>
+                    <label><input type="checkbox" name="skills[]" value="AWS"> AWS</label>
+                    <label><input type="checkbox" name="skills[]" value="Machine Learning"> Machine Learning</label>
+                    <label><input type="checkbox" name="skills[]" value="Leadership"> Leadership</label>
+                </div>
+                <br>
+                <label>Other Skills (comma separated)</label>
+                <input type="text" placeholder="HTML, CSS, Git, Docker">
+            </fieldset>
+            
+            <!-- Additional Information -->
+            <fieldset>
+                <legend>Additional Information</legend>
+                <label for="languages">Languages Known</label>
+                <input type="text" placeholder="English, Tamil, Hindi">
+                
+                <label for="resumeFile">Upload Existing Resume (PDF)</label>
+                <input type="file" id="resumeFile" name="resumeFile" accept=".pdf">
+            </fieldset>
+        
+            <button type="submit" class="submit-btn">Generate Resume</button>
+        </form>
+    </div>
+
+</body>
+</html>
