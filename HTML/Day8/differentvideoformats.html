@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-Format Video Player</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="https://www.google.com/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <h1>Multi-Format Video Player</h1>
+        <p>Demonstration of &lt;video&gt; element with multiple &lt;source&gt; tags</p>
+    </header>
+
+    <main>
+        <section>
+            <h2>Video with Multiple Formats</h2>
+            <p>This video player provides multiple format options. The browser will automatically select the first supported format.</p>
+            
+            <video controls poster="https://picsum.photos/id/1015/640/360">
+                <!-- MP4 - Best compatibility (H.264) -->
+                <source src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" 
+                        type="video/mp4">
+                
+                <!-- WebM - Modern open format (VP9) -->
+                <source src="https://mdn.github.io/learning-area/html/multimedia-and-embedding/video-and-audio-content/rabbit320.webm" 
+                        type="video/webm">
+                
+                <!-- OGV - Theora format (good fallback) -->
+                <source src="http://media.w3.org/2010/05/sintel/trailer.ogv" 
+                        type="video/ogg">
+                
+                <!-- Fallback message -->
+                Your browser does not support the video element.
+            </video>
+            
+            <div>
+                <h3>Supported Formats in Order of Preference:</h3>
+                <ol>
+                    <li><strong>MP4</strong> (<code>video/mp4</code>) — Highest compatibility across browsers and devices</li>
+                    <li><strong>WebM</strong> (<code>video/webm</code>) — Excellent quality and open standard</li>
+                    <li><strong>OGV</strong> (<code>video/ogg</code>) — Older open format using Theora codec</li>
+                </ol>
+            </div>
+        </section>
+
+        <section>
+            <h2>How Multiple &lt;source&gt; Tags Work</h2>
+            <p>The browser checks each <code>&lt;source&gt;</code> tag from top to bottom and plays the first compatible one. This approach ensures maximum cross-browser and cross-device support.</p>
+            
+            <pre><code>&lt;video controls&gt;
+    &lt;source src="video.mp4" type="video/mp4"&gt;
+    &lt;source src="video.webm" type="video/webm"&gt;
+    &lt;source src="video.ogv" type="video/ogg"&gt;
+    Your browser does not support the video element.
+&lt;/video&gt;</code></pre>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Multi-Format Video Demonstration • Public test files used</p>
+    </footer>
+</body>
+</html>

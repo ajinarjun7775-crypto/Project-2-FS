@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-Format Audio Demonstration</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="https://www.google.com/favicon.ico" type="image/x-icon">
+
+</head>
+<body>
+    <header>
+        <h1>Multi-Format Audio Player</h1>
+        <p>Demonstration of &lt;audio&gt; element with multiple &lt;source&gt; tags</p>
+    </header>
+
+    <main>
+        <section>
+            <h2>Audio with Multiple Formats</h2>
+            <p>This audio player uses multiple <code>&lt;source&gt;</code> tags to provide fallback support for different audio formats (MP3, OGG, WAV). The browser will automatically choose the first supported format.</p>
+            
+            <audio controls>
+                <!-- MP3 - Most widely supported -->
+                <source src="https://www.learningcontainer.com/wp-content/uploads/2020/02/Kalimba.mp3" type="audio/mpeg">
+                
+                <!-- OGG - Good quality and open format -->
+                <source src="https://www.learningcontainer.com/wp-content/uploads/2020/02/Sample-OGG-File.ogg" type="audio/ogg">
+                
+                <!-- WAV - Uncompressed, highest quality but larger file -->
+                <source src="https://www.learningcontainer.com/wp-content/uploads/2020/02/Kalimba-online-audio-converter.com_-1.wav" type="audio/wav">
+                
+                <!-- Fallback message -->
+                Your browser does not support the audio element.
+            </audio>
+            
+            <div class="formats">
+                <h3>Supported Formats in Order of Preference:</h3>
+                <ol>
+                    <li><strong>MP3</strong> (<code>audio/mpeg</code>) — Best compatibility across all browsers</li>
+                    <li><strong>OGG</strong> (<code>audio/ogg</code>) — Excellent open-source alternative</li>
+                    <li><strong>WAV</strong> (<code>audio/wav</code>) — Uncompressed, highest quality</li>
+                </ol>
+            </div>
+        </section>
+    </main>
+    <section>
+            <h2>How Multiple Sources Work</h2>
+            <p>The browser checks each <code>&lt;source&gt;</code> tag in order and plays the first one it supports. This ensures maximum compatibility across different devices and browsers.</p>
+            
+            <pre><code>&lt;audio controls&gt;
+    &lt;source src="file.mp3" type="audio/mpeg"&gt;
+    &lt;source src="file.ogg" type="audio/ogg"&gt;
+    &lt;source src="file.wav" type="audio/wav"&gt;
+    Your browser does not support the audio element.
+&lt;/audio&gt;</code></pre>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Multi-Format Audio Demonstration • Using public test files</p>
+    </footer>
