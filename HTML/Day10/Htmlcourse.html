@@ -15,32 +15,15 @@
         <button><a href="#Introduction to HTML">Introduction to HTML</a></button>
         <button><a href="#TAGS">Tags</a></button>
         <button><a href="#Elements">Elements</a></button>
-        <button><a href="#Block Level Elements">Block level elements</a></button>
-        <button><a href="#Block and Inline Elements">Block and Inline Elements</a></
+        <button><a href="#BlockLevel">Block level elements</a></button>
+        <button><a href="Semantictags.html">Semantic tags and Attributes</a></button>
+        <button><a href="Globalandlocalattributes.html">Attributes</a></button>
+        <button><a href="../Day8/HTMLcomplete.html">Formatting & Interactive Tags</a></button>
+        <button><a href="../Day7/studentregistrationform.html">Form Elements</a></button><br><br>
+        <button><a href="../Day8/mediaaudiofiles.html">SRC Formats (media)</a></button>
+        <button><a href="../Day8/iframeembedding.html">Iframe embeddings</a></button>
     </nav>
-                 <select>
-                    <option value="#" selected>Attributes</option>  
-                 </select>
-            
-            
-            </a>
-             <a href="#">Develop using blocklevel story</a>
-             <a href="#">Inline Tags story</a>
-             <a href="#"> Src Usage </a>
-             <a href="#">Anchor attributes and web navigation</a>
-             <a href="#"> Create own webpage</a>
-             <a href="#">Form elements</a>
-             <a href="#">Employee details form elements</a>
-             <a href="#">Fieldset and legend </a>
-             <a href="#">Login and signup</a>
-             <a href="#">Product form</a>
-             <a href="#">Resume builder</a>
-             <a href="#">Student registration form</a>
-             <a href="#">Multimedia Webpage</a> 
-              <a href="#">IFrame Embedding</a> 
-              <a href="#">Complete HTML Webpage</a>
- </nav>
-
+         <br><br>  
  <section>
     <article>
         <img src="../assets/ht2.jpg" width="300" height="200">
@@ -51,18 +34,18 @@
               to display it correctly. It is the foundation of web development and is essential for 
               building websites and web applications.
         </p>
-<ul>
     <li><label><strong>What is Markup Language?</strong></label><br>
         <input type="radio" name="q1" value="a"> A programming language
         <input type="radio" name="q1" value="b"> A language used to structure content on the web
         <input type="radio" name="q1" value="c"> A language for styling web pages
         <input type="radio" name="q1" value="d"> A language for creating databases
     </li>
-</ul>
+
 <p>HTML is called a markup language because its primary job is to mark up plain text
      with tags that describe the structure and semantics of content, rather than to perform computations or logic.</p>
     </article>
  </section>
+
 
  <section id="TAGS">
     <article>
@@ -184,24 +167,53 @@
                     </tr>
                 </tbody>
             </table>
-        <div id="Block Level elements">
-            <h3>Block Level Elements</h3>
-            
-        
-
-
-
-
-
-        </div>
-            
-
-
-
-
-
-
+        <section id="BlockLevel">
+        <article>
+            <h3>Block Level Vs Inline Elements</h3>
+             <table border="3">
+                <thead>
+                    <tr>
+                        <th>Features</th>
+                        <th>Block Level</th>
+                        <th>Inline Elements</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Width</td>
+                        <td>Full width by default</td>
+                        <td>Only Content width</td>
+                    </tr>
+                    <tr>
+                        <td>Height and Width</td>
+                        <td>Can be set using CSS</td>
+                        <td>Generally Cannot (Except Img)</td>
+                    </tr>
+                    <tr>
+                        <td>Margin and Padding</td>
+                        <td>All four sides work</td>
+                        <td>Only Left and Right</td>
+                    </tr>
+                    <tr>
+                        <td>Can contain other elements</td>
+                        <td>Can contain both block and inline</td>
+                        <td>Can contain only Inline</td>
+                    </tr>
+                    <tr>
+                        <td>Default Display</td>
+                        <td>display; block;</td>
+                        <td>display; inline;</td>
+                    </tr>
+                    <tr>
+                        <td>Common Use </td>
+                        <td>Layout and Structure</td>
+                        <td>Text formatting inside blocks</td>
+                    </tr>
+                </tbody>
+            </table>
+        </article>
         </section>
+            
     
 </body>
 </html>

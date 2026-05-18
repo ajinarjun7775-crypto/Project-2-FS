@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Semantic HTML Tags and Attributes Tutorial">
+    <title>Semantic HTML - Tags & Attributes Explained</title>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>Semantic HTML Tags &amp; Attributes</h1>
+        <p>A beginner-friendly demonstration page built with proper semantic HTML5</p>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <h2>Contents</h2>
+        <ul>
+            <li><a href="#what-is-semantic">What is Semantic HTML?</a></li>
+            <li><a href="#common-attributes">Common Attributes</a></li>
+            <li><a href="#semantic-tags">Semantic Tags Explained</a></li>
+            <li><a href="#example">Live Example Section</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        
+        <!-- Section 1 -->
+        <section id="what-is-semantic">
+            <h2>What is Semantic HTML?</h2>
+            <article>
+                <p>
+                    Semantic HTML uses meaningful tags that clearly describe the <strong>purpose</strong> of the content, 
+                    not just how it looks. This improves accessibility, SEO, and code readability.
+                </p>
+            </article>
+        </section>
+
+        <!-- Section 2: Attributes -->
+        <section id="common-attributes">
+            <h2>Common HTML Attributes Explained</h2>
+            
+            <table border="1" cellpadding="10" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Attribute</th>
+                        <th>Purpose</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>lang</code></td>
+                        <td>Specifies the language of the content</td>
+                        <td><code>&lt;html lang="en"&gt;</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>id</code></td>
+                        <td>Unique identifier for an element</td>
+                        <td><code>&lt;section id="intro"&gt;</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>class</code></td>
+                        <td>Groups elements (used with CSS)</td>
+                        <td><code>&lt;div class="card"&gt;</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>title</code></td>
+                        <td>Provides extra information (tooltip)</td>
+                        <td><code>&lt;abbr title="HyperText Markup Language"&gt;HTML&lt;/abbr&gt;</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>href</code></td>
+                        <td>Defines link destination</td>
+                        <td><code>&lt;a href="https://example.com"&gt;Link&lt;/a&gt;</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>src</code> &amp; <code>alt</code></td>
+                        <td>Image source and alternative text</td>
+                        <td><code>&lt;img src="photo.jpg" alt="Description"&gt;</code></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Section 3: Semantic Tags -->
+        <section id="semantic-tags">
+            <h2>Important Semantic Tags</h2>
+            
+            <article>
+                <h3>&lt;header&gt; and &lt;footer&gt;</h3>
+                <p>Used for introductory and closing content of a page or section.</p>
+            </article>
+
+            <article>
+                <h3>&lt;nav&gt;</h3>
+                <p>Contains major navigation links.</p>
+            </article>
+
+            <article>
+                <h3>&lt;main&gt;</h3>
+                <p>Represents the dominant content of the page. Only one &lt;main&gt; per document.</p>
+            </article>
+
+            <article>
+                <h3>&lt;section&gt;</h3>
+                <p>Groups related content thematically.</p>
+            </article>
+
+            <article>
+                <h3>&lt;article&gt;</h3>
+                <p>Independent, self-contained content (blog post, news, etc.).</p>
+            </article>
+
+            <article>
+                <h3>&lt;aside&gt;</h3>
+                <p>Content that is tangentially related (sidebar, glossary, etc.).</p>
+            </article>
+
+            <article>
+                <h3>&lt;figure&gt; and &lt;figcaption&gt;</h3>
+                <p>Used for images, diagrams, or code examples with captions.</p>
+            </article>
+        </section>
+
+        <!-- Example Section -->
+        <section id="example">
+            <h2>Real-World Semantic Example</h2>
+            
+            <article>
+                <header>
+                    <h3>Why Learn Semantic HTML?</h3>
+                    <p title="Published on May 19, 2026">Written by Ajin • May 19, 2026</p>
+                </header>
+                
+                <p>
+                    Using semantic tags helps screen readers, search engines, and developers understand your content better.
+                </p>
+                
+                <figure>
+                    <img src="../assets/semantictags.png" 
+                         alt="Illustration showing semantic HTML structure" 
+                         width="600" height="300">
+                    <figcaption>Figure 1: Semantic HTML Structure</figcaption>
+                </figure>
+            </article>
+        </section>
+
+    </main>
+
+    <!-- Sidebar -->
+    <aside>
+        <h2>Quick Tips</h2>
+        <ul>
+            <li>Always use <code>&lt;html lang="en"&gt;</code></li>
+            <li>Use <code>&lt;main&gt;</code> only once</li>
+            <li>Prefer semantic tags over <code>&lt;div&gt;</code></li>
+            <li>Always add <code>alt</code> text for images</li>
+        </ul>
+    </aside>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Semantic HTML Demo. This page uses only semantic HTML5 elements and no external CSS.</p>
+        <p>
+            <a href="#" title="Back to top">Back to Top</a>
+        </p>
+    </footer>
+
+</body>
+</html>
