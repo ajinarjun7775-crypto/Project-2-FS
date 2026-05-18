@@ -3,12 +3,132 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HTML TEST 1</title>
+    <meta name="description" content="Comprehensive guide to HTML fundamentals - Questions and Answers">
+    <title>HTML Fundamentals: Questions &amp; Answers</title>
+   
 </head>
 <body>
-    <h1>HTML TEST 1</h1>
-    <p><strong>What is html and why is it called a markup language?</strong></p>
-    <p>HTML stands for HyperText Markup Language. It is called a markup language because it uses tags to "mark up" the content of a webpage, defining its structure and presentation. HTML allows developers to create and organize web content, such as text, images, links, and multimedia, by using various elements and attributes. The "hypertext" aspect refers to the ability to create links between different web pages, enabling easy navigation across the internet.</p>
-    
+
+    <header>
+        <h1>HTML Fundamentals</h1>
+        <p>Questions and Professional Answers</p>
+    </header>
+
+    <main>
+
+        <section>
+            <h2>1. What is HTML and why is it called a markup language?</h2>
+            <p><strong>HTML (HyperText Markup Language)</strong> is the standard markup language used to create and structure web pages and web applications. It consists of a series of elements that tell the browser how to display content such as text, images, links, and multimedia.</p>
+            <p>It is called a <strong>markup language</strong> because it uses <em>tags</em> to “mark up” or annotate plain text, providing instructions on structure and presentation without being a programming language that performs logic or calculations.</p>
+        </section>
+
+        <section>
+            <h2>2. What is the difference between HTML and HTML5?</h2>
+            <p><strong>HTML</strong> refers to the original and evolving specification. <strong>HTML5</strong> is the fifth and latest major revision of the HTML standard, released in 2014 and now the living standard maintained by WHATWG.</p>
+            <p>Key improvements in HTML5 include:</p>
+            <ul>
+                <li>Semantic elements (<code>&lt;header&gt;</code>, <code>&lt;article&gt;</code>, <code>&lt;footer&gt;</code>, etc.)</li>
+                <li>Native support for audio and video</li>
+                <li>Canvas API for graphics</li>
+                <li>Local storage and offline capabilities</li>
+                <li>Form enhancements and validation</li>
+                <li>Removal of obsolete elements (e.g., <code>&lt;font&gt;</code>, <code>&lt;center&gt;</code>)</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>3. What is the purpose of &lt;!DOCTYPE html&gt; in HTML?</h2>
+            <p>The <code>&lt;!DOCTYPE html&gt;</code> declaration is placed at the very beginning of an HTML document. It informs the web browser about the document type and version, ensuring the browser renders the page in <strong>standards mode</strong> (strict compliance with modern HTML specifications) rather than quirks mode.</p>
+            <p>Without it, browsers may render the page inconsistently across different environments.</p>
+        </section>
+
+        <section>
+            <h2>4. What is the difference between tags and elements in HTML?</h2>
+            <p><strong>Tags</strong> are the markup components enclosed in angle brackets, e.g., <code>&lt;p&gt;</code> or <code>&lt;/p&gt;</code>.</p>
+            <p>An <strong>element</strong> consists of an opening tag, its content (if any), and a closing tag. For example:</p>
+            <p><code>&lt;p&gt;This is a paragraph.&lt;/p&gt;</code> — the entire construct is an element.</p>
+            <p>Tags are the syntax; elements are the complete structural units they define.</p>
+        </section>
+
+        <section>
+            <h2>5. What are semantic tags? Give examples.</h2>
+            <p>Semantic tags are HTML elements that clearly describe their meaning and purpose to both the browser and developers, improving accessibility, SEO, and code readability.</p>
+            <p><strong>Examples:</strong></p>
+            <ul>
+                <li><code>&lt;header&gt;</code> — introductory content or navigational aids</li>
+                <li><code>&lt;nav&gt;</code> — navigation links</li>
+                <li><code>&lt;article&gt;</code> — self-contained content (blog post, news)</li>
+                <li><code>&lt;section&gt;</code> — thematic grouping of content</li>
+                <li><code>&lt;aside&gt;</code> — sidebar content</li>
+                <li><code>&lt;footer&gt;</code> — footer information</li>
+                <li><code>&lt;main&gt;</code> — primary content of the document</li>
+            </ul>
+        </section>
+
+        <section> class="answer">
+            <h2>6. What is the difference between semantic and non-semantic tags?</h2>
+            <p><strong>Semantic tags</strong> convey meaning about the content they enclose (e.g., <code>&lt;article&gt;</code>, <code>&lt;header&gt;</code>).</p>
+            <p><strong>Non-semantic tags</strong> only define presentation or generic containers without implying meaning (e.g., <code>&lt;div&gt;</code> and <code>&lt;span&gt;</code>).</p>
+            <p>Using semantic tags is a best practice for modern web development as it enhances accessibility tools, search engine understanding, and future-proofing of code.</p>
+        </section>
+
+        <section>
+            <h2>7. What are meta tags and why are they used?</h2>
+            <p>Meta tags provide metadata about the HTML document. They are placed inside the <code>&lt;head&gt;</code> section and are not displayed on the page.</p>
+            <p><strong>Common uses:</strong></p>
+            <ul>
+                <li><code>&lt;meta charset="UTF-8"&gt;</code> — character encoding</li>
+                <li><code>&lt;meta name="viewport"&gt;</code> — responsive design control</li>
+                <li><code>&lt;meta name="description"&gt;</code> — page description for search engines</li>
+                <li><code>&lt;meta name="keywords"&gt;</code> — (less relevant now) keywords</li>
+                <li>Open Graph and Twitter Card meta tags for social sharing</li>
+            </ul>
+            <p>They are essential for SEO, browser behavior, and social media integration.</p>
+        </section>
+
+        <section>
+            <h2>8. Why do we use the &lt;source&gt; tag inside audio and video tags?</h2>
+            <p>The <code>&lt;source&gt;</code> element is used within <code>&lt;audio&gt;</code> and <code>&lt;video&gt;</code> tags to specify multiple media resources. This allows the browser to choose the most suitable format based on its capabilities and network conditions.</p>
+            <p>Example:</p>
+            <pre style="background:#f1f3f5;padding:15px;border-radius:6px;font-size:0.95rem;"><code>&lt;video controls&gt;
+    &lt;source src="movie.mp4" type="video/mp4"&gt;
+    &lt;source src="movie.webm" type="video/webm"&gt;
+    Your browser does not support the video tag.
+&lt;/video&gt;</code></pre>
+        </section>
+
+        <section>
+            <h2>9. What is iframe and where is it used in real-time applications?</h2>
+            <p>An <strong>iframe</strong> (inline frame) is an HTML element that embeds another HTML document within the current page.</p>
+            <p><strong>Real-time applications:</strong></p>
+            <ul>
+                <li>Embedding YouTube or Vimeo videos</li>
+                <li>Third-party payment gateways (e.g., Stripe checkout)</li>
+                <li>Google Maps</li>
+                <li>Advertising banners</li>
+                <li>Live chat widgets</li>
+                <li>Social media feeds (Twitter timelines, Facebook posts)</li>
+            </ul>
+            <p>Security note: Modern browsers restrict iframe capabilities via sandbox attributes and CSP headers.</p>
+        </section>
+
+        <section>
+            <h2>10. What is the difference between block-level elements and inline elements?</h2>
+            <p><strong>Block-level elements</strong> start on a new line and take up the full available width.</p>
+            <p>Examples: <code>&lt;div&gt;</code>, <code>&lt;p&gt;</code>, <code>&lt;h1&gt;</code>–<code>&lt;h6&gt;</code>, <code>&lt;section&gt;</code>, <code>&lt;article&gt;</code>.</p>
+            
+            <p><strong>Inline elements</strong> flow within the text and only take the width necessary for their content.</p>
+            <p>Examples: <code>&lt;span&gt;</code>, <code>&lt;a&gt;</code>, <code>&lt;strong&gt;</code>, <code>&lt;em&gt;</code>, <code>&lt;img&gt;</code>.</p>
+            
+            <p>CSS properties such as <code>display: block;</code> or <code>display: inline;</code> can override default behavior.</p>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>This educational webpage was generated to provide clear, professional explanations of core HTML concepts.</p>
+        <p>For best viewing experience, open this file in any modern web browser.</p>
+    </footer>
+
 </body>
 </html>
