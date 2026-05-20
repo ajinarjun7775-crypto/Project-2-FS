@@ -4,6 +4,24 @@
     color: black;
 }
 .element{
-    background-color: aquamarine;
+    background-color: rgb(2, 52, 35);
     color: brown;
+}
+.element-title {
+color: black;
+
+}
+.element-text {
+color: chocolate;
+}
+body{
+
+    background-color: rgb(64, 63, 63);
+}
+.syntax{
+    background-color: chartreuse;color: black;
+}
+.syntax-text {
+color: brown;
+
 }
