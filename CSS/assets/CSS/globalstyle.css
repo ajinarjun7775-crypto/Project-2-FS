@@ -1,4 +1,9 @@
-.head {
-color: aquamarine;
+#header {
 
+    background-color: rgb(233, 199, 112);
+    color: black;
+}
+.element{
+    background-color: aquamarine;
+    color: brown;
 }
