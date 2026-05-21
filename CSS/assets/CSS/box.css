@@ -1,9 +1,17 @@
 
+*{
 
-.head{
+    margin: 0;
+}
+.box{
 
-background-color: black;
+background-color: burlywood;
 text-align: center;
-color: brown;
+color: antiquewhite;
+padding: 20px;
+
+}
+#two {
+background-color: black;
 
 }
