@@ -19,9 +19,16 @@ width: 200px;
     background-color: brown;
     color: antiquewhite;
     display: flex;
-    gap: 30px;
-    justify-content: center;
-    align-items: center;
     padding: 200px;
+    gap: 50px;
+    justify-content: end;
+}
+.overflow{
 
+    background-color: black;
+    color: antiquewhite;
+    height: 800px;
+    width: 400px;
+    margin: 0;
+    overflow: scroll;
 }
