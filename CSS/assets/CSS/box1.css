@@ -12,6 +12,7 @@ color: antiquewhite;
 padding: 20px;
 height: 200px;
 width: 200px;
+justify-content: space-between;
 }
 .parent {
 
@@ -21,7 +22,7 @@ width: 200px;
     display: flex;
     padding: 200px;
     gap: 50px;
-    justify-content: end;
+    justify-content: space-between;
 }
 .overflow{
 
@@ -29,6 +30,6 @@ width: 200px;
     color: antiquewhite;
     height: 800px;
     width: 400px;
-    margin: 0;
+    margin-bottom: 300px;
     overflow: scroll;
 }
