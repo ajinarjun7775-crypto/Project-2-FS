@@ -11,9 +11,16 @@
     height: 30px;
     width: 30px;
 }
+.style1:hover{
+    transform: scale(1.2);
+}
 body {
             font-family: 'Roboto', Arial, sans-serif;
             background-color: #f8f8f8;
+            overflow-x: hidden;
+}
+html{
+    scroll-behavior: smooth;
 }
 .volvohead{
      background-color: white;
@@ -59,4 +66,14 @@ body {
     display: flex;
     align-items: center;
     gap: 20px;
+}
+.bginfo{
+    position: relative;
+            height: 100vh;
+            min-height: 100px;
+            background: url(../Volvo/volvo-main.jpg) center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            color: white;
+            overflow: hidden
 }
