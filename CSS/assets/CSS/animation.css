@@ -1,0 +1,46 @@
+*{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+
+}
+body{
+font-family: Verdana, Geneva, Tahoma, sans-serif;
+overflow: hidden;
+}
+html{
+scroll-behavior: smooth;
+
+}
+
+.animation{
+    background-color: black;
+    color: aliceblue;
+    padding: 30px;
+}
+.text{
+background-color: aqua;
+color: black;
+height: 100px;
+display: flex;
+justify-content: center;
+align-items: center;
+transition: 1s ease;
+font-size: small;
+text-decoration: none;
+}
+
+.text:hover{
+
+    background-color: yellow;
+    color: blue;
+    transform: scale(1.02);
+}
+
+
+.data li:last-child{
+background-color: rgb(13, 178, 211);
+color: black;
+}
+
+
