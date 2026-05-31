@@ -157,6 +157,7 @@ html{
     color: blue;
     background-color:white;
     border-radius: 40px;
+    text-decoration: dotted;
 }
 .head a{
     text-decoration: none;
