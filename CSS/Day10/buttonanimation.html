@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animations</title>
+    <style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    html{
+        scroll-behavior: smooth;
+    }
+    .head-one{
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 200px;
+        gap: 50px;
+    }
+    .click{
+        display: flex;
+        flex-direction: row;
+        gap: 40px;
+    }
+    .btn{
+        font-size: 1.5rem;
+        border-radius: 20px;
+        padding: 10px 20px;
+        transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+        box-shadow: 5px;
+        cursor: pointer;
+    }
+    /* Button functions Animated */
+    .btn:hover{
+        transform: scale(0.9);
+        box-shadow: 20px;
+        background-color: green;
+    }
+    .btn:active{
+        transform: scale(1.2);
+        transition: all 0.1s;
+    }
+    
+    .btn-two{
+        font-size: 1.5rem;
+        border-radius: 20px;
+        padding: 10px 20px;
+        cursor: pointer;
+    }
+    .btn-two:hover{
+        transform: scale(0.9);
+        background-color: brown;
+    }
+
+    </style>
+</head>
+<body>
+    <div class="head-one">
+        <h1>Are you sure you wants to enter</h1>
+
+        <div class="click">
+        <button class="btn">Enter</button>
+        <button class="btn-two">Skip</button>
+        </div>
+    </div>
+    
+
+    
+</body>
+</html>

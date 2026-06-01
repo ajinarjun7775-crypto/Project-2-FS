@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS concepts</title>
+    <link rel="stylesheet" href="../assets/CSS/profilecard.css">
+</head>
+<body>
+     <header>
+        <div class="nav">
+            <a href="#" class="logo">CSS Mastery</a>
+            <ul class="nav-links">
+                <li><a href="#selectors">Selectors</a></li>
+                <li><a href="#boxmodel">Box Model</a></li>
+                <li><a href="#flexbox">Flexbox</a></li>
+                <li><a href="#grid">Grid</a></li>
+            </ul>
+        </div>
+    </header>
+    <section class="hero">
+        <h1>Core CSS Concepts</h1>
+        <p>Master the fundamental building blocks of modern web design. Explore selectors, the box model, Flexbox, and CSS Grid with practical examples and interactive demonstrations.</p>
+        <a href="#selectors" class="btn">Begin Learning</a>
+    </section>
+
+     <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 260px 1fr; gap: 3rem; padding: 0 2rem;">
+        
+        <!-- Sidebar TOC -->
+        <aside class="toc">
+            <h3 style="margin-bottom: 1rem; color: #1e2937;">Table of Contents</h3>
+            <ul>
+                <li><a href="#selectors">CSS Selectors</a></li>
+                <li><a href="#boxmodel">The Box Model</a></li>
+                <li><a href="#flexbox">CSS Flexbox</a></li>
+                <li><a href="#grid">CSS Grid Layout</a></li>
+                <li><a href="#responsive">Responsive Design</a></li>
+            </ul>
+        </aside>
+
+          <main>
+            
+            <!-- Introduction -->
+            <section id="introduction">
+                <h2>Introduction to CSS</h2>
+                <div class="card">
+                    <p>Cascading Style Sheets (CSS) is a stylesheet language used to describe the presentation of a document written in HTML or XML. CSS separates content from presentation, enabling developers to create visually engaging websites efficiently.</p>
+                    <p>Key principles include the cascade, specificity, and inheritance, which determine how styles are applied when multiple rules target the same element.</p>
+                </div>
+            </section>
+
+            <!-- Selectors -->
+            <section id="selectors">
+                <h2>CSS Selectors</h2>
+                <div class="card">
+                    <p>Selectors are patterns used to select the HTML elements you want to style. They range from simple element selectors to complex attribute and pseudo-class selectors.</p>
+                    
+                    <h3 style="margin: 1.5rem 0 0.75rem;">Common Selectors</h3>
+                    <ul style="padding-left: 1.5rem; line-height: 1.8;">
+                        <li><strong>Element:</strong> <code>p { }</code> - Targets all paragraph elements</li>
+                        <li><strong>Class:</strong> <code>.highlight { }</code> - Targets elements with class "highlight"</li>
+                        <li><strong>ID:</strong> <code>#header { }</code> - Targets element with id "header"</li>
+                        <li><strong>Descendant:</strong> <code>ul li { }</code> - Targets li inside ul</li>
+                    </ul>
+                    
+                    <div class="demo">
+                        <p style="background: #fef3c7; padding: 1rem; border-radius: 8px; margin-bottom: 1rem;">This paragraph has a yellow background via inline styles.</p>
+                        <button onclick="this.style.backgroundColor = '#22c55e'; this.style.color = 'white';" style="padding: 0.75rem 1.5rem; border: none; border-radius: 9999px; cursor: pointer;">Click to change style</button>
+                    </div>
+                    
+                    <div class="code-block">
+/* Example CSS */
+.intro-text {
+    color: #2563eb;
+    font-weight: 500;
+}
+
+#unique-element {
+    border: 3px solid #eab308;
+}
+                    </div>
+                </div>
+            </section>
+
+            <!-- Box Model -->
+            <section id="boxmodel">
+                <h2>The CSS Box Model</h2>
+                <div class="card">
+                    <p>Every HTML element is a rectangular box consisting of content, padding, border, and margin areas.</p>
+                    
+                    <div style="background: white; border: 2px solid #64748b; padding: 2rem; margin: 2rem 0; max-width: 420px;">
+                        <div style="border: 4px solid #3b82f6; padding: 1.5rem; background: #dbeafe; text-align: center;">
+                            <strong>Content Area</strong>
+                            <div style="font-size: 0.85rem; margin-top: 0.5rem; opacity: 0.75;">(width + height)</div>
+                        </div>
+                    </div>
+                    
+                    <p><strong>Box Sizing:</strong> The <code>box-sizing</code> property determines whether padding and border are included in the element's width and height. Use <code>border-box</code> for predictable layouts.</p>
+                </div>
+            </section>
+
+            <!-- Flexbox -->
+            <section id="flexbox">
+                <h2>CSS Flexbox</h2>
+                <div class="card">
+                    <p>Flexbox is a one-dimensional layout method for laying out items in rows or columns. It excels at distributing space and aligning items.</p>
+                    
+                    <h4 style="margin: 1.25rem 0 0.75rem;">Key Flex Properties</h4>
+                    <ul style="padding-left: 1.5rem;">
+                        <li><code>display: flex;</code> - Creates a flex container</li>
+                        <li><code>justify-content</code> - Aligns items along main axis</li>
+                        <li><code>align-items</code> - Aligns items on cross axis</li>
+                        <li><code>flex-wrap</code> - Controls wrapping behavior</li>
+                    </ul>
+                    
+                    <div class="flex-demo" id="flexContainer">
+                        <div class="flex-item">Item 1</div>
+                        <div class="flex-item">Item 2</div>
+                        <div class="flex-item">Item 3</div>
+                    </div>
+                    
+                    <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                        <button onclick="document.getElementById('flexContainer').style.justifyContent = 'center'" style="padding: 10px 16px; background: #64748b; color: white; border: none; border-radius: 6px; cursor: pointer;">Center</button>
+                        <button onclick="document.getElementById('flexContainer').style.justifyContent = 'space-between'" style="padding: 10px 16px; background: #64748b; color: white; border: none; border-radius: 6px; cursor: pointer;">Space Between</button>
+                        <button onclick="document.getElementById('flexContainer').style.flexDirection = 'column'" style="padding: 10px 16px; background: #64748b; color: white; border: none; border-radius: 6px; cursor: pointer;">Column</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CSS Grid -->
+            <section id="grid">
+                <h2>CSS Grid Layout</h2>
+                <div class="card">
+                    <p>CSS Grid is a two-dimensional layout system that allows precise control over rows and columns simultaneously.</p>
+                    
+                    <div class="grid-demo">
+                        <div class="grid-item">1</div>
+                        <div class="grid-item">2</div>
+                        <div class="grid-item">3</div>
+                        <div class="grid-item">4</div>
+                        <div class="grid-item">5</div>
+                        <div class="grid-item">6</div>
+                    </div>
+                    
+                    <div class="code-block">
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+                    </div>
+                </div>
+            </section>
+
+            <!-- Responsive Design -->
+            <section id="responsive">
+                <h2>Responsive Design</h2>
+                <div class="card">
+                    <p>Responsive web design ensures optimal viewing experience across various devices. Key tools include media queries, relative units (%, em, rem), and modern layout methods like Flexbox and Grid.</p>
+                    
+                    <div style="background: #f1f5f9; padding: 2rem; border-radius: 12px; text-align: center; font-size: 1.1rem;">
+                        <strong>Try resizing this browser window</strong><br>
+                        <span style="font-size: 0.95rem; color: #64748b;">The layout adapts using CSS Grid and Flexbox</span>
+                    </div>
+                </div>
+            </section>
+            
+        </main>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 CSS Concepts Educational Resource. Built to demonstrate key styling capabilities.</p>
+        <p style="margin-top: 1rem; font-size: 0.9rem;">This is a self-contained educational webpage showcasing modern CSS techniques.</p>
+    </footer>
+
+
+</body>
+</html>
