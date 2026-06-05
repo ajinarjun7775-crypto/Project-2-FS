@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Card</title>
+     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: #f3f4f6;
+            padding: 2rem;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .profile-card {
+            transition: all 0.3s ease;
+        }
+        .profile-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.15);
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-white shadow-lg rounded-3xl p-8 max-w-xs w-full profile-card text-center">
+        
+        <!-- Profile Image -->
+        <div class="flex justify-center mb-6">
+            <img 
+                src="../../CSS/assets/profile/profile.jpg" 
+                alt="Profile Picture"
+                class="w-40 h-60 object-cover  ring-4 ring-blue-100 shadow-md"
+            >
+        </div>
+
+        <!-- Name -->
+        <h2 class="text-2xl font-semibold text-gray-900 mb-1">
+            Ajin Arjun 
+        </h2>
+
+        <!-- Role -->
+        <p class="text-gray-600 font-medium mb-8">
+            Front end developer &amp; UI/UX designer
+        </p>
+
+        <!-- Stats -->
+        <div class="flex justify-center gap-8 mb-8 text-sm">
+            <div>
+                <div class="font-semibold text-gray-900">248</div>
+                <div class="text-gray-500">Followers</div>
+            </div>
+            <div>
+                <div class="font-semibold text-gray-900">42</div>
+                <div class="text-gray-500">Following</div>
+            </div>
+            <div>
+                <div class="font-semibold text-gray-900">18</div>
+                <div class="text-gray-500">Projects</div>
+            </div>
+        </div>
+
+        <!-- Follow Button -->
+        <button onclick="toggleFollow(this)" 
+                class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3.5 px-6 rounded-2xl transition-all active:scale-95">
+            Follow
+        </button>
+    </div>
+</body>
+</html>

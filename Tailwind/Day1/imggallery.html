@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: #f3f4f6;
+            padding: 2rem;
+            min-height: 100vh;
+        }
+        .gallery-img {
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .gallery-item:hover .gallery-img {
+            transform: scale(1.10);
+        }
+        .gallery-item {
+            overflow: hidden;
+            border-radius: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="max-w-7xl mx-auto">
+        <h1 class="text-4xl font-semibold text-gray-900 mb-4 text-center">Image Gallery</h1>
+        <p class="text-gray-600 text-center mb-12 max-w-md mx-auto">
+            Hover over any image to experience the smooth zoom effect
+        </p>
+
+        <!-- Image Gallery Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            
+            <!-- Image 1 -->
+            <div class="gallery-item shadow-md">
+                <img src="https://picsum.photos/id/1015/600/400" 
+                     alt="Mountain Landscape"
+                     class="gallery-img w-full h-64 object-cover">
+            </div>
+
+            <!-- Image 2 -->
+            <div class="gallery-item shadow-md">
+                <img src="https://picsum.photos/id/201/600/400" 
+                     alt="Ocean View"
+                     class="gallery-img w-full h-64 object-cover">
+            </div>
+
+            <!-- Image 3 -->
+            <div class="gallery-item shadow-md">
+                <img src="https://picsum.photos/id/251/600/400" 
+                     alt="Forest Trail"
+                     class="gallery-img w-full h-64 object-cover">
+            </div>
+
+            <!-- Image 4 -->
+            <div class="gallery-item shadow-md">
+                <img src="https://picsum.photos/id/301/600/400" 
+                     alt="Desert Dunes"
+                     class="gallery-img w-full h-64 object-cover">
+            </div>
+
+            <!-- Image 5 -->
+            <div class="gallery-item shadow-md">
+                <img src="https://picsum.photos/id/1016/600/400" 
+                     alt="City Lights"
+                     class="gallery-img w-full h-64 object-cover">
+            </div>
+
+            <!-- Image 6 -->
+            <div class="gallery-item shadow-md">
+                <img src="https://picsum.photos/id/133/600/400" 
+                     alt="Snowy Peaks"
+                     class="gallery-img w-full h-64 object-cover">
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
