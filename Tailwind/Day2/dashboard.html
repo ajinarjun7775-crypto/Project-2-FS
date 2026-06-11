@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | SLA Institute</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', system_ui, sans-serif;
+        }
+        
+        .sidebar {
+            transition: transform 0.3s ease;
+        }
+        
+        .stat-card {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+        }
+        
+        .nav-link {
+            transition: all 0.2s ease;
+        }
+        
+        .nav-link:hover {
+            background-color: #f1e7ff;
+            color: #4f46e5;
+        }
+        
+        .nav-link.active {
+            background-color: #e0e7ff;
+            color: #4338ca;
+            border-radius: 0.5rem;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <!-- Top Navigation Bar -->
+    <nav class="bg-white border-b border-gray-200 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <!-- Left side -->
+                <div class="flex items-center gap-4">
+                    <!-- Mobile Hamburger -->
+                    <button onclick="toggleSidebar()" 
+                            class="lg:hidden p-2 text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                    
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-indigo-600 rounded-xl flex items-center justify-center">
+                            <span class="text-white font-bold text-2xl">S</span>
+                        </div>
+                        <div>
+                            <span class="font-bold text-2xl text-gray-900">SLA</span>
+                            <span class="font-semibold text-indigo-600">Admin</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right side -->
+                <div class="flex items-center gap-4">
+                    <!-- Search -->
+                    <div class="hidden md:block relative w-72">
+                        <input type="text" placeholder="Search students, courses..." 
+                               class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 text-sm">
+                        <i class="fas fa-search absolute left-4 top-3 text-gray-400"></i>
+                    </div>
+
+                    <!-- Notifications -->
+                    <button class="p-2 text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-xl relative">
+                        <i class="fas fa-bell text-xl"></i>
+                        <span class="absolute top-1 right-1 w-5 h-5 bg-red-500 text-white text-xs flex items-center justify-center rounded-full">8</span>
+                    </button>
+
+                    <!-- Profile -->
+                    <div class="flex items-center gap-3 cursor-pointer">
+                        <div class="text-right hidden md:block">
+                            <p class="font-semibold text-gray-900">Ajin Arjun</p>
+                            <p class="text-xs text-gray-500">Super Admin</p>
+                        </div>
+                        <img src="https://picsum.photos/id/1005/40/40" alt="Admin" 
+                             class="w-10 h-10 rounded-full border border-gray-200 object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="flex max-w-7xl mx-auto">
+        
+        <!-- Sidebar -->
+        <aside id="sidebar" 
+               class="sidebar hidden lg:block w-64 bg-white border-r border-gray-200 min-h-[calc(100vh-64px)] p-4 fixed lg:static z-40">
+            <div class="space-y-1">
+                <a href="#" class="nav-link active flex items-center gap-3 px-4 py-3 text-sm font-medium">
+                    <i class="fas fa-tachometer-alt w-5"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="#" class="nav-link flex items-center gap-3 px-4 py-3 text-sm font-medium text-gray-700 hover:text-gray-900">
+                    <i class="fas fa-book w-5"></i>
+                    <span>Courses</span>
+                </a>
+                <a href="#" class="nav-link flex items-center gap-3 px-4 py-3 text-sm font-medium text-gray-700 hover:text-gray-900">
+                    <i class="fas fa-users w-5"></i>
+                    <span>Students</span>
+                </a>
+                <a href="#" class="nav-link flex items-center gap-3 px-4 py-3 text-sm font-medium text-gray-700 hover:text-gray-900">
+                    <i class="fas fa-chalkboard-teacher w-5"></i>
+                    <span>Trainers</span>
+                </a>
+                <a href="#" class="nav-link flex items-center gap-3 px-4 py-3 text-sm font-medium text-gray-700 hover:text-gray-900">
+                    <i class="fas fa-chart-line w-5"></i>
+                    <span>Reports</span>
+                </a>
+                <a href="#" class="nav-link flex items-center gap-3 px-4 py-3 text-sm font-medium text-gray-700 hover:text-gray-900">
+                    <i class="fas fa-cog w-5"></i>
+                    <span>Settings</span>
+                </a>
+            </div>
+
+            <!-- Sidebar Footer -->
+            <div class="absolute bottom-6 left-4 right-4">
+                <div class="bg-gray-50 rounded-xl p-3 text-center">
+                    <p class="text-xs text-gray-500">Need help?</p>
+                    <button class="mt-2 text-sm font-medium text-indigo-600 hover:text-indigo-700">Contact Support</button>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 p-6 lg:p-8 w-full lg:ml-0">
+            
+            <!-- Welcome Header -->
+            <div class="mb-8">
+                <h1 class="text-3xl font-bold text-gray-900">Welcome back, Ajin!</h1>
+                <p class="text-gray-600 mt-1">Here's what's happening with your institute today.</p>
+            </div>
+
+            <!-- Stats Cards -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                
+                <div class="stat-card bg-white p-6 rounded-2xl border border-gray-100 shadow-sm">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <p class="text-gray-500 text-sm">Total Students</p>
+                            <p class="text-3xl font-bold text-gray-900 mt-1">2,847</p>
+                        </div>
+                        <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center">
+                            <i class="fas fa-users text-blue-600 text-2xl"></i>
+                        </div>
+                    </div>
+                    <p class="text-emerald-600 text-sm mt-4 flex items-center gap-1">
+                        <i class="fas fa-arrow-up"></i> <span>+184 this month</span>
+                    </p>
+                </div>
+
+                <div class="stat-card bg-white p-6 rounded-2xl border border-gray-100 shadow-sm">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <p class="text-gray-500 text-sm">Active Courses</p>
+                            <p class="text-3xl font-bold text-gray-900 mt-1">42</p>
+                        </div>
+                        <div class="w-12 h-12 bg-indigo-100 rounded-xl flex items-center justify-center">
+                            <i class="fas fa-book text-indigo-600 text-2xl"></i>
+                        </div>
+                    </div>
+                    <p class="text-emerald-600 text-sm mt-4 flex items-center gap-1">
+                        <i class="fas fa-arrow-up"></i> <span>+5 new courses</span>
+                    </p>
+                </div>
+
+                <div class="stat-card bg-white p-6 rounded-2xl border border-gray-100 shadow-sm">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <p class="text-gray-500 text-sm">Total Revenue</p>
+                            <p class="text-3xl font-bold text-gray-900 mt-1">₹48.2L</p>
+                        </div>
+                        <div class="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center">
+                            <i class="fas fa-rupee-sign text-emerald-600 text-2xl"></i>
+                        </div>
+                    </div>
+                    <p class="text-emerald-600 text-sm mt-4 flex items-center gap-1">
+                        <i class="fas fa-arrow-up"></i> <span>+12% from last month</span>
+                    </p>
+                </div>
+
+                <div class="stat-card bg-white p-6 rounded-2xl border border-gray-100 shadow-sm">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <p class="text-gray-500 text-sm">New Enrollments</p>
+                            <p class="text-3xl font-bold text-gray-900 mt-1">312</p>
+                        </div>
+                        <div class="w-12 h-12 bg-amber-100 rounded-xl flex items-center justify-center">
+                            <i class="fas fa-user-plus text-amber-600 text-2xl"></i>
+                        </div>
+                    </div>
+                    <p class="text-emerald-600 text-sm mt-4 flex items-center gap-1">
+                        <i class="fas fa-arrow-up"></i> <span>+47 this week</span>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="mb-8">
+                <h2 class="font-semibold text-xl text-gray-900 mb-4">Quick Actions</h2>
+                <div class="flex flex-wrap gap-3">
+                    <button class="flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-3 rounded-xl font-medium transition">
+                        <i class="fas fa-plus"></i>
+                        <span>Add New Course</span>
+                    </button>
+                    <button class="flex items-center gap-2 bg-white hover:bg-gray-50 border border-gray-300 px-5 py-3 rounded-xl font-medium transition">
+                        <i class="fas fa-user-plus text-gray-700"></i>
+                        <span>Enroll Student</span>
+                    </button>
+                    <button class="flex items-center gap-2 bg-white hover:bg-gray-50 border border-gray-300 px-5 py-3 rounded-xl font-medium transition">
+                        <i class="fas fa-download text-gray-700"></i>
+                        <span>Download Report</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Popular Courses Section -->
+            <div class="mb-8">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="font-semibold text-xl text-gray-900">Popular Courses</h2>
+                    <a href="#" class="text-indigo-600 hover:text-indigo-700 text-sm font-medium">View All →</a>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                    <!-- Course Card 1 -->
+                    <div class="bg-white rounded-2xl border border-gray-100 p-5">
+                        <div class="flex justify-between">
+                            <div>
+                                <h4 class="font-semibold">Full Stack Development</h4>
+                                <p class="text-sm text-gray-500">Ramesh S.</p>
+                            </div>
+                            <span class="text-xs bg-green-100 text-green-700 px-3 py-1 rounded-full h-fit">Hot</span>
+                        </div>
+                        <div class="mt-4 flex justify-between items-end">
+                            <div>
+                                <span class="text-2xl font-bold">₹24,999</span>
+                            </div>
+                            <span class="text-sm text-gray-500">1,245 students</span>
+                        </div>
+                    </div>
+
+                    <!-- Course Card 2 -->
+                    <div class="bg-white rounded-2xl border border-gray-100 p-5">
+                        <div class="flex justify-between">
+                            <div>
+                                <h4 class="font-semibold">UI/UX Design Mastery</h4>
+                                <p class="text-sm text-gray-500">Manoj Arul</p>
+                            </div>
+                        </div>
+                        <div class="mt-4 flex justify-between items-end">
+                            <div>
+                                <span class="text-2xl font-bold">₹15,999</span>
+                            </div>
+                            <span class="text-sm text-gray-500">892 students</span>
+                        </div>
+                    </div>
+
+                    <!-- Course Card 3 -->
+                    <div class="bg-white rounded-2xl border border-gray-100 p-5">
+                        <div class="flex justify-between">
+                            <div>
+                                <h4 class="font-semibold">Python for Data Science</h4>
+                                <p class="text-sm text-gray-500">Lakshmi Arjun</p>
+                            </div>
+                        </div>
+                        <div class="mt-4 flex justify-between items-end">
+                            <div>
+                                <span class="text-2xl font-bold">₹22,999</span>
+                            </div>
+                            <span class="text-sm text-gray-500">654 students</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Enrollments -->
+            <div>
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="font-semibold text-xl text-gray-900">Recent Enrollments</h2>
+                    <a href="#" class="text-indigo-600 hover:text-indigo-700 text-sm font-medium">View All</a>
+                </div>
+                
+                <div class="bg-white rounded-2xl border border-gray-100 overflow-hidden">
+                    <table class="w-full">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th class="text-left px-6 py-4 text-sm font-semibold text-gray-600">Student</th>
+                                <th class="text-left px-6 py-4 text-sm font-semibold text-gray-600">Course</th>
+                                <th class="text-left px-6 py-4 text-sm font-semibold text-gray-600">Date</th>
+                                <th class="text-right px-6 py-4 text-sm font-semibold text-gray-600">Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-100 text-sm">
+                            <tr>
+                                <td class="px-6 py-4 font-medium">Arjun Kumar</td>
+                                <td class="px-6 py-4 text-gray-600">Full Stack Development</td>
+                                <td class="px-6 py-4 text-gray-500">Today</td>
+                                <td class="px-6 py-4 text-right font-semibold">₹24,999</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 font-medium">Sneha Patel</td>
+                                <td class="px-6 py-4 text-gray-600">UI/UX Design Mastery</td>
+                                <td class="px-6 py-4 text-gray-500">Yesterday</td>
+                                <td class="px-6 py-4 text-right font-semibold">₹15,999</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 font-medium">Rahul Sharma</td>
+                                <td class="px-6 py-4 text-gray-600">Python for Data Science</td>
+                                <td class="px-6 py-4 text-gray-500">2 days ago</td>
+                                <td class="px-6 py-4 text-right font-semibold">₹22,999</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('hidden');
+            sidebar.classList.toggle('block');
+        }
+
+        // Close sidebar when clicking outside on mobile
+        document.addEventListener('click', function(event) {
+            const sidebar = document.getElementById('sidebar');
+            const isClickInside = sidebar.contains(event.target) || 
+                                  event.target.closest('button[onclick*="toggleSidebar"]');
+            
+            if (!isClickInside && window.innerWidth < 1024) {
+                sidebar.classList.add('hidden');
+                sidebar.classList.remove('block');
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SLA Institute - Course Catalog</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+        
+        .course-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .course-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 
+                        0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+        
+        .course-image {
+            transition: transform 0.4s ease;
+        }
+        
+        .course-card:hover .course-image {
+            transform: scale(1.08);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 py-12 font-sans">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Section Header -->
+        <div class="text-center mb-12">
+            <h2 class="text-4xl font-bold text-gray-900 mb-3">Our Popular Courses</h2>
+            <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                Learn from industry experts and advance your career with practical training.
+            </p>
+        </div>
+
+        <!-- Responsive Course Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 lg:gap-8">
+            
+            <!-- Course Card 1 -->
+            <div class="course-card bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100">
+                <div class="relative">
+                    <img src="https://picsum.photos/id/1015/600/400" 
+                         alt="Full Stack Development" 
+                         class="course-image w-full h-52 object-cover">
+                </div>
+                <div class="p-5">
+                    <h3 class="font-semibold text-xl text-gray-900 mb-1">Full Stack Web Development</h3>
+                    <p class="text-gray-500 text-sm mb-4">HTML, CSS, JavaScript, React, Node.js</p>
+                    
+                    <div class="flex items-center gap-3 mb-5">
+                        <div class="w-8 h-8 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600 font-bold">RS</div>
+                        <div>
+                            <p class="font-medium text-gray-800">Ramesh S.</p>
+                            <p class="text-xs text-gray-500">8+ Years Experience</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <span class="text-3xl font-bold text-gray-900">₹24,999</span>
+                        </div>
+                        <button onclick="enrollCourse(1)" 
+                                class="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-2.5 rounded-xl font-medium flex items-center gap-2 transition-colors">
+                            Enroll Now
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Course Card 2 -->
+            <div class="course-card bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100">
+                <div class="relative">
+                    <img src="https://picsum.photos/id/201/600/400" 
+                         alt="Advanced React" 
+                         class="course-image w-full h-52 object-cover">
+                </div>
+                <div class="p-5">
+                    <h3 class="font-semibold text-xl text-gray-900 mb-1">Advanced React & Next.js</h3>
+                    <p class="text-gray-500 text-sm mb-4">Modern Frontend Development</p>
+                    
+                    <div class="flex items-center gap-3 mb-5">
+                        <div class="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center text-purple-600 font-bold">SP</div>
+                        <div>
+                            <p class="font-medium text-gray-800">Sneha Priya</p>
+                            <p class="text-xs text-gray-500">Ex-Meta Developer</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <span class="text-3xl font-bold text-gray-900">₹18,999</span>
+                        </div>
+                        <button onclick="enrollCourse(2)" 
+                                class="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-2.5 rounded-xl font-medium flex items-center gap-2 transition-colors">
+                            Enroll Now
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Course Card 3 -->
+            <div class="course-card bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100">
+                <div class="relative">
+                    <img src="https://picsum.photos/id/237/600/400" 
+                         alt="UI/UX Design" 
+                         class="course-image w-full h-52 object-cover">
+                </div>
+                <div class="p-5">
+                    <h3 class="font-semibold text-xl text-gray-900 mb-1">UI/UX Design Mastery</h3>
+                    <p class="text-gray-500 text-sm mb-4">Figma, Prototyping & Research</p>
+                    
+                    <div class="flex items-center gap-3 mb-5">
+                        <div class="w-8 h-8 bg-rose-100 rounded-full flex items-center justify-center text-rose-600 font-bold">MA</div>
+                        <div>
+                            <p class="font-medium text-gray-800">Manoj Arul</p>
+                            <p class="text-xs text-gray-500">12+ Years Experience</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <span class="text-3xl font-bold text-gray-900">₹15,999</span>
+                        </div>
+                        <button onclick="enrollCourse(3)" 
+                                class="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-2.5 rounded-xl font-medium flex items-center gap-2 transition-colors">
+                            Enroll Now
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Course Card 4 -->
+            <div class="course-card bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100">
+                <div class="relative">
+                    <img src="https://picsum.photos/id/180/600/400" 
+                         alt="Node.js" 
+                         class="course-image w-full h-52 object-cover">
+                </div>
+                <div class="p-5">
+                    <h3 class="font-semibold text-xl text-gray-900 mb-1">Node.js Backend Development</h3>
+                    <p class="text-gray-500 text-sm mb-4">Express, MongoDB & APIs</p>
+                    
+                    <div class="flex items-center gap-3 mb-5">
+                        <div class="w-8 h-8 bg-amber-100 rounded-full flex items-center justify-center text-amber-600 font-bold">VK</div>
+                        <div>
+                            <p class="font-medium text-gray-800">Vikram Kumar</p>
+                            <p class="text-xs text-gray-500">Backend Architect</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <span class="text-3xl font-bold text-gray-900">₹19,999</span>
+                        </div>
+                        <button onclick="enrollCourse(4)" 
+                                class="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-2.5 rounded-xl font-medium flex items-center gap-2 transition-colors">
+                            Enroll Now
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Course Card 5 -->
+            <div class="course-card bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100">
+                <div class="relative">
+                    <img src="https://picsum.photos/id/251/600/400" 
+                         alt="Python Data Science" 
+                         class="course-image w-full h-52 object-cover">
+                </div>
+                <div class="p-5">
+                    <h3 class="font-semibold text-xl text-gray-900 mb-1">Python for Data Science</h3>
+                    <p class="text-gray-500 text-sm mb-4">Pandas, NumPy & ML Basics</p>
+                    
+                    <div class="flex items-center gap-3 mb-5">
+                        <div class="w-8 h-8 bg-teal-100 rounded-full flex items-center justify-center text-teal-600 font-bold">LA</div>
+                        <div>
+                            <p class="font-medium text-gray-800">Lakshmi Arjun</p>
+                            <p class="text-xs text-gray-500">IIT Madras Alumni</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <span class="text-3xl font-bold text-gray-900">₹22,999</span>
+                        </div>
+                        <button onclick="enrollCourse(5)" 
+                                class="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-2.5 rounded-xl font-medium flex items-center gap-2 transition-colors">
+                            Enroll Now
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Course Card 6 -->
+            <div class="course-card bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100">
+                <div class="relative">
+                    <img src="https://picsum.photos/id/316/600/400" 
+                         alt="Digital Marketing" 
+                         class="course-image w-full h-52 object-cover">
+                </div>
+                <div class="p-5">
+                    <h3 class="font-semibold text-xl text-gray-900 mb-1">Digital Marketing Mastery</h3>
+                    <p class="text-gray-500 text-sm mb-4">SEO, SEM & Analytics</p>
+                    
+                    <div class="flex items-center gap-3 mb-5">
+                        <div class="w-8 h-8 bg-violet-100 rounded-full flex items-center justify-center text-violet-600 font-bold">PR</div>
+                        <div>
+                            <p class="font-medium text-gray-800">Priya Rajan</p>
+                            <p class="text-xs text-gray-500">Marketing Expert</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <span class="text-3xl font-bold text-gray-900">₹12,999</span>
+                        </div>
+                        <button onclick="enrollCourse(6)" 
+                                class="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-2.5 rounded-xl font-medium flex items-center gap-2 transition-colors">
+                            Enroll Now
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function enrollCourse(id) {
+            alert(`Enrollment initiated for Course ${id}. This is a demonstration.`);
+        }
+    </script>
+</body>
+</html>
