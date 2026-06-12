@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduForge • Admin Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Space+Grotesk:wght@500;600&amp;display=swap');
+        
+        body {
+            font-family: 'Inter', system_ui, sans-serif;
+        }
+        
+        .font-display {
+            font-family: 'Space Grotesk', 'Inter', system_ui, sans-serif;
+            font-weight: 600;
+        }
+
+        .sidebar-link {
+            transition: all 0.2s ease;
+        }
+        
+        .sidebar-link:hover {
+            background-color: #1e2937;
+            color: white;
+        }
+        
+        .sidebar-link.active {
+            background-color: #312e81;
+            color: white;
+            border-radius: 0.75rem;
+        }
+
+        .stat-card {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.05), 0 4px 6px -4px rgb(0 0 0 / 0.05);
+        }
+
+        .dashboard-table {
+            border-collapse: separate;
+            border-spacing: 0;
+        }
+
+        .nav-active {
+            background-color: #312e81;
+            color: white !important;
+            border-radius: 0.75rem;
+        }
+
+        .section-header {
+            font-size: 1.35rem;
+            font-weight: 700;
+            letter-spacing: -0.025em;
+        }
+
+        .admin-main {
+            scrollbar-width: thin;
+            scrollbar-color: #cbd5e1 #f8fafc;
+        }
+    </style>
+</head>
+<body class="bg-slate-100">
+    <div class="flex h-screen overflow-hidden">
+        
+        <!-- Sidebar -->
+        <div id="sidebar" 
+             class="hidden lg:flex w-72 flex-col bg-slate-900 text-slate-300 border-r border-slate-800">
+            
+            <!-- Sidebar Header -->
+            <div class="px-6 py-5 border-b border-slate-800 flex items-center gap-x-3">
+                <div class="flex h-9 w-9 items-center justify-center rounded-2xl bg-indigo-600">
+                    <span class="font-display text-white text-3xl font-bold tracking-tighter">E</span>
+                </div>
+                <div>
+                    <span class="font-display text-white text-2xl font-semibold tracking-tighter">EduForge</span>
+                    <div class="text-[10px] text-slate-500 -mt-1">Admin Panel</div>
+                </div>
+            </div>
+            
+            <!-- Navigation -->
+            <div class="flex-1 px-3 py-6 space-y-1">
+                <a href="#" onclick="setActiveNav(this)" class="sidebar-link active flex items-center gap-x-3 px-4 py-3 text-sm font-medium text-white">
+                    <i class="fa-solid fa-tachometer-alt w-5"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="#" onclick="setActiveNav(this)" class="sidebar-link flex items-center gap-x-3 px-4 py-3 text-sm font-medium hover:text-white">
+                    <i class="fa-solid fa-users w-5"></i>
+                    <span>Users</span>
+                </a>
+                <a href="#" onclick="setActiveNav(this)" class="sidebar-link flex items-center gap-x-3 px-4 py-3 text-sm font-medium hover:text-white">
+                    <i class="fa-solid fa-book w-5"></i>
+                    <span>Courses</span>
+                </a>
+                <a href="#" onclick="setActiveNav(this)" class="sidebar-link flex items-center gap-x-3 px-4 py-3 text-sm font-medium hover:text-white">
+                    <i class="fa-solid fa-chart-bar w-5"></i>
+                    <span>Reports</span>
+                </a>
+                <a href="#" onclick="setActiveNav(this)" class="sidebar-link flex items-center gap-x-3 px-4 py-3 text-sm font-medium hover:text-white">
+                    <i class="fa-solid fa-cog w-5"></i>
+                    <span>Settings</span>
+                </a>
+            </div>
+            
+            <!-- Sidebar Footer -->
+            <div class="p-4 border-t border-slate-800">
+                <div class="flex items-center gap-x-3 px-2">
+                    <img src="https://picsum.photos/id/1005/36/36" class="w-9 h-9 rounded-full object-cover ring-2 ring-slate-700" alt="Admin Avatar">
+                    <div class="flex-1 min-w-0">
+                        <div class="text-sm font-semibold text-white truncate">Ajin W S</div>
+                        <div class="text-xs text-slate-500">Super Admin</div>
+                    </div>
+                    <button class="text-slate-400 hover:text-white p-1">
+                        <i class="fa-solid fa-sign-out-alt"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="flex-1 flex flex-col overflow-hidden">
+            
+            <!-- Top Header -->
+            <header class="bg-white border-b border-slate-200 px-6 py-4 flex items-center justify-between">
+                <div class="flex items-center gap-x-4">
+                    <!-- Mobile Sidebar Toggle -->
+                    <button onclick="toggleMobileSidebar()" 
+                            class="lg:hidden flex h-10 w-10 items-center justify-center text-slate-600 hover:bg-slate-100 rounded-2xl">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                    
+                    <div>
+                        <h1 class="font-semibold text-2xl tracking-tight">Dashboard</h1>
+                        <p class="text-xs text-slate-500 -mt-0.5">Welcome back, Ajin</p>
+                    </div>
+                </div>
+                
+                <div class="flex items-center gap-x-3">
+                    <!-- Search -->
+                    <div class="hidden md:flex items-center bg-slate-100 border border-slate-200 focus-within:border-indigo-300 transition-colors px-4 h-10 rounded-2xl w-72">
+                        <i class="fa-solid fa-search text-slate-400 mr-3"></i>
+                        <input type="text" placeholder="Search users or courses..." 
+                               class="flex-1 bg-transparent outline-none text-sm placeholder:text-slate-400">
+                    </div>
+                    
+                    <!-- Notifications -->
+                    <button class="relative flex h-10 w-10 items-center justify-center text-slate-600 hover:bg-slate-100 rounded-2xl transition-colors">
+                        <i class="fa-solid fa-bell text-xl"></i>
+                        <span class="absolute top-2 right-2 flex h-4 w-4 items-center justify-center">
+                            <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-red-400 opacity-75"></span>
+                            <span class="relative inline-flex h-3.5 w-3.5 items-center justify-center rounded-full bg-red-500 text-[9px] font-bold text-white">7</span>
+                        </span>
+                    </button>
+                    
+                    <!-- User Avatar -->
+                    <div class="flex items-center gap-x-2 pl-3 border-l">
+                        <div class="text-right hidden sm:block">
+                            <div class="text-sm font-semibold">Ajin W S</div>
+                            <div class="text-[10px] text-slate-500 -mt-0.5">Super Admin</div>
+                        </div>
+                        <img src="https://picsum.photos/id/1005/36/36" class="w-9 h-9 rounded-full object-cover ring-2 ring-white shadow-sm" alt="Admin">
+                    </div>
+                </div>
+            </header>
+            
+            <!-- Dashboard Content -->
+            <div class="flex-1 overflow-auto p-6 lg:p-8 admin-main">
+                
+                <!-- Statistics Cards -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-5 mb-8">
+                    
+                    <!-- Stat 1 -->
+                    <div class="stat-card bg-white border border-slate-200 rounded-3xl p-5">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <div class="text-sm font-medium text-slate-500">Total Students</div>
+                                <div class="mt-1 text-4xl font-semibold tracking-tighter">12,847</div>
+                            </div>
+                            <div class="h-11 w-11 bg-indigo-100 text-indigo-600 rounded-2xl flex items-center justify-center">
+                                <i class="fa-solid fa-users text-2xl"></i>
+                            </div>
+                        </div>
+                        <div class="mt-4 flex items-center text-xs">
+                            <span class="inline-flex items-center text-emerald-600 font-medium">
+                                <i class="fa-solid fa-arrow-trend-up mr-1"></i> +18%
+                            </span>
+                            <span class="text-slate-400 ml-2">from last month</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Stat 2 -->
+                    <div class="stat-card bg-white border border-slate-200 rounded-3xl p-5">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <div class="text-sm font-medium text-slate-500">Active Courses</div>
+                                <div class="mt-1 text-4xl font-semibold tracking-tighter">148</div>
+                            </div>
+                            <div class="h-11 w-11 bg-emerald-100 text-emerald-600 rounded-2xl flex items-center justify-center">
+                                <i class="fa-solid fa-book text-2xl"></i>
+                            </div>
+                        </div>
+                        <div class="mt-4 flex items-center text-xs">
+                            <span class="inline-flex items-center text-emerald-600 font-medium">
+                                <i class="fa-solid fa-arrow-trend-up mr-1"></i> +7
+                            </span>
+                            <span class="text-slate-400 ml-2">new this month</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Stat 3 -->
+                    <div class="stat-card bg-white border border-slate-200 rounded-3xl p-5">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <div class="text-sm font-medium text-slate-500">Monthly Revenue</div>
+                                <div class="mt-1 text-4xl font-semibold tracking-tighter">₹48.2L</div>
+                            </div>
+                            <div class="h-11 w-11 bg-amber-100 text-amber-600 rounded-2xl flex items-center justify-center">
+                                <i class="fa-solid fa-rupee-sign text-2xl"></i>
+                            </div>
+                        </div>
+                        <div class="mt-4 flex items-center text-xs">
+                            <span class="inline-flex items-center text-emerald-600 font-medium">
+                                <i class="fa-solid fa-arrow-trend-up mr-1"></i> +24%
+                            </span>
+                            <span class="text-slate-400 ml-2">vs last month</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Stat 4 -->
+                    <div class="stat-card bg-white border border-slate-200 rounded-3xl p-5">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <div class="text-sm font-medium text-slate-500">Avg. Completion</div>
+                                <div class="mt-1 text-4xl font-semibold tracking-tighter">87%</div>
+                            </div>
+                            <div class="h-11 w-11 bg-sky-100 text-sky-600 rounded-2xl flex items-center justify-center">
+                                <i class="fa-solid fa-chart-line text-2xl"></i>
+                            </div>
+                        </div>
+                        <div class="mt-4 flex items-center text-xs">
+                            <span class="inline-flex items-center text-emerald-600 font-medium">
+                                <i class="fa-solid fa-arrow-trend-up mr-1"></i> +3.2%
+                            </span>
+                            <span class="text-slate-400 ml-2">improvement</span>
+                        </div>
+                    </div>
+                    
+                </div>
+                
+                <!-- Charts Row -->
+                <div class="grid grid-cols-1 lg:grid-cols-5 gap-5 mb-8">
+                    
+                    <!-- Enrollment Trend Chart -->
+                    <div class="lg:col-span-3 bg-white border border-slate-200 rounded-3xl p-6">
+                        <div class="flex items-center justify-between mb-5">
+                            <div>
+                                <div class="font-semibold text-lg">Enrollment Trends</div>
+                                <div class="text-xs text-slate-500">Last 8 weeks</div>
+                            </div>
+                            <select class="text-xs border border-slate-200 rounded-xl px-3 py-1.5 outline-none">
+                                <option>Last 8 weeks</option>
+                                <option>Last 6 months</option>
+                                <option>This year</option>
+                            </select>
+                        </div>
+                        <div class="h-72">
+                            <canvas id="enrollmentChart"></canvas>
+                        </div>
+                    </div>
+                    
+                    <!-- Course Distribution -->
+                    <div class="lg:col-span-2 bg-white border border-slate-200 rounded-3xl p-6">
+                        <div class="font-semibold text-lg mb-5">Course Distribution</div>
+                        <div class="h-72 flex items-center justify-center">
+                            <canvas id="distributionChart"></canvas>
+                        </div>
+                        <div class="grid grid-cols-2 gap-x-4 text-xs mt-2">
+                            <div class="flex items-center gap-x-2"><span class="inline-block w-2.5 h-2.5 bg-indigo-600 rounded-full"></span> Web Development</div>
+                            <div class="flex items-center gap-x-2"><span class="inline-block w-2.5 h-2.5 bg-emerald-500 rounded-full"></span> Data Science</div>
+                            <div class="flex items-center gap-x-2"><span class="inline-block w-2.5 h-2.5 bg-amber-500 rounded-full"></span> Design</div>
+                            <div class="flex items-center gap-x-2"><span class="inline-block w-2.5 h-2.5 bg-sky-500 rounded-full"></span> Others</div>
+                        </div>
+                    </div>
+                    
+                </div>
+                
+                <!-- Recent Users Table -->
+                <div class="bg-white border border-slate-200 rounded-3xl overflow-hidden">
+                    <div class="px-6 py-5 flex items-center justify-between border-b">
+                        <div>
+                            <div class="font-semibold text-lg">Recent Users</div>
+                            <div class="text-xs text-slate-500">Showing latest 8 registrations</div>
+                        </div>
+                        <button onclick="showAllUsers()" 
+                                class="text-sm font-semibold px-5 py-2 text-indigo-600 hover:bg-indigo-50 rounded-2xl transition-colors">
+                            View all users →
+                        </button>
+                    </div>
+                    
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-sm">
+                            <thead>
+                                <tr class="bg-slate-50 text-left text-xs font-semibold text-slate-500">
+                                    <th class="px-6 py-4">User</th>
+                                    <th class="px-6 py-4">Email</th>
+                                    <th class="px-6 py-4">Course Enrolled</th>
+                                    <th class="px-6 py-4">Joined</th>
+                                    <th class="px-6 py-4">Status</th>
+                                    <th class="px-6 py-4 text-right">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y text-slate-700">
+                                <tr class="hover:bg-slate-50">
+                                    <td class="px-6 py-4">
+                                        <div class="flex items-center gap-x-3">
+                                            <img src="https://picsum.photos/id/1009/32/32" class="w-8 h-8 rounded-full object-cover" alt="">
+                                            <div>
+                                                <div class="font-medium">Ananya Patel</div>
+                                                <div class="text-xs text-slate-500">ID: #U-28491</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4 text-slate-600">ananya.patel@email.com</td>
+                                    <td class="px-6 py-4">Full Stack Web Dev</td>
+                                    <td class="px-6 py-4 text-slate-500">Feb 9, 2026</td>
+                                    <td class="px-6 py-4">
+                                        <span class="inline-flex items-center px-3 py-px text-xs font-medium bg-emerald-100 text-emerald-700 rounded-full">Active</span>
+                                    </td>
+                                    <td class="px-6 py-4 text-right">
+                                        <button onclick="viewUser(1)" class="text-xs font-medium px-4 py-1.5 border border-slate-300 hover:bg-slate-100 rounded-2xl">View</button>
+                                    </td>
+                                </tr>
+                                
+                                <tr class="hover:bg-slate-50">
+                                    <td class="px-6 py-4">
+                                        <div class="flex items-center gap-x-3">
+                                            <img src="https://picsum.photos/id/1011/32/32" class="w-8 h-8 rounded-full object-cover" alt="">
+                                            <div>
+                                                <div class="font-medium">Rahul Menon</div>
+                                                <div class="text-xs text-slate-500">ID: #U-28487</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4 text-slate-600">rahul.menon@email.com</td>
+                                    <td class="px-6 py-4">UI/UX Design Mastery</td>
+                                    <td class="px-6 py-4 text-slate-500">Feb 8, 2026</td>
+                                    <td class="px-6 py-4">
+                                        <span class="inline-flex items-center px-3 py-px text-xs font-medium bg-emerald-100 text-emerald-700 rounded-full">Active</span>
+                                    </td>
+                                    <td class="px-6 py-4 text-right">
+                                        <button onclick="viewUser(2)" class="text-xs font-medium px-4 py-1.5 border border-slate-300 hover:bg-slate-100 rounded-2xl">View</button>
+                                    </td>
+                                </tr>
+                                
+                                <tr class="hover:bg-slate-50">
+                                    <td class="px-6 py-4">
+                                        <div class="flex items-center gap-x-3">
+                                            <img src="https://picsum.photos/id/1006/32/32" class="w-8 h-8 rounded-full object-cover" alt="">
+                                            <div>
+                                                <div class="font-medium">Sneha Kapoor</div>
+                                                <div class="text-xs text-slate-500">ID: #U-28482</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4 text-slate-600">sneha.kapoor@email.com</td>
+                                    <td class="px-6 py-4">Data Science Fundamentals</td>
+                                    <td class="px-6 py-4 text-slate-500">Feb 7, 2026</td>
+                                    <td class="px-6 py-4">
+                                        <span class="inline-flex items-center px-3 py-px text-xs font-medium bg-amber-100 text-amber-700 rounded-full">Pending</span>
+                                    </td>
+                                    <td class="px-6 py-4 text-right">
+                                        <button onclick="viewUser(3)" class="text-xs font-medium px-4 py-1.5 border border-slate-300 hover:bg-slate-100 rounded-2xl">View</button>
+                                    </td>
+                                </tr>
+                                
+                                <tr class="hover:bg-slate-50">
+                                    <td class="px-6 py-4">
+                                        <div class="flex items-center gap-x-3">
+                                            <img src="https://picsum.photos/id/201/32/32" class="w-8 h-8 rounded-full object-cover" alt="">
+                                            <div>
+                                                <div class="font-medium">Vikram Rao</div>
+                                                <div class="text-xs text-slate-500">ID: #U-28476</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4 text-slate-600">vikram.rao@email.com</td>
+                                    <td class="px-6 py-4">Machine Learning Bootcamp</td>
+                                    <td class="px-6 py-4 text-slate-500">Feb 5, 2026</td>
+                                    <td class="px-6 py-4">
+                                        <span class="inline-flex items-center px-3 py-px text-xs font-medium bg-emerald-100 text-emerald-700 rounded-full">Active</span>
+                                    </td>
+                                    <td class="px-6 py-4 text-right">
+                                        <button onclick="viewUser(4)" class="text-xs font-medium px-4 py-1.5 border border-slate-300 hover:bg-slate-100 rounded-2xl">View</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="px-6 py-4 bg-slate-50 border-t text-xs flex justify-between items-center text-slate-500">
+                        <div>Showing <span class="font-medium text-slate-700">4 of 12,847</span> users</div>
+                        <button onclick="showAllUsers()" class="font-medium text-indigo-600 hover:underline">See full user list →</button>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    
+    <!-- User Detail Modal -->
+    <div id="userModal" onclick="if (event.target.id === 'userModal') closeUserModal()" 
+         class="hidden fixed inset-0 bg-black/60 backdrop-blur-sm z-[100] flex items-center justify-center p-4">
+        <div onclick="event.stopImmediatePropagation()" class="bg-white w-full max-w-lg rounded-3xl overflow-hidden shadow-xl">
+            <div class="px-6 py-5 border-b flex items-center justify-between">
+                <div class="font-semibold text-xl">User Details</div>
+                <button onclick="closeUserModal()" class="text-3xl leading-none text-slate-300 hover:text-slate-400">×</button>
+            </div>
+            
+            <div id="modalContent" class="p-6">
+                <!-- Dynamic content injected via JS -->
+            </div>
+            
+            <div class="px-6 py-4 bg-slate-50 flex justify-end gap-x-3">
+                <button onclick="closeUserModal()" class="px-5 py-2 text-sm font-medium text-slate-600 hover:bg-slate-200 rounded-2xl">Close</button>
+                <button class="px-6 py-2 text-sm font-semibold bg-indigo-600 hover:bg-indigo-700 text-white rounded-2xl">Edit User</button>
+            </div>
+        </div>
+    </div>
+    
+    
+</body>
+</html>
